@@ -34,10 +34,11 @@
   - Once you've cloned the project you can use the command `git pull origin master` to pull down any code changes on the master branch
   - if you want to pull code down from a different branch use `git pull origin branch` where branch is the branch you want to pull down.
   - Once you've made your changes and committed them locally, use `git push origin master` to push to the master branch on github.
-
   - **Note: We will be committing to dev most of the time so use `git pull/push origin dev` while in the dev branch on your machine(`git checkout dev` incase you forget how to switch to the dev branch on your machine)**
 
 - If you have any issues or have a question post your question in our groupme
+
+***
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
