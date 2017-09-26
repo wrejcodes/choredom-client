@@ -19,9 +19,11 @@
   2. Copy the url inside of the box
   3. open your terminal or git bash if you're on windows
   4. move to the directory you want our project to reside
-  5. type 'git clone ' and then paste the copied text
+  5. type `git clone ` and then paste the copied text
+   - for our project the command will be `git clone https://github.com/wrejcodes/choredom-client`
   6. hit enter and you chould clone the project
-  7. Once the project is cloned onto your machine use `git checkout dev` to change to the dev branch of the code. This is where we will be making our commits.
+  7. Use `cd choredom-client` to move into the project directory 
+  8. Once the project is cloned onto your machine use `git checkout dev` to change to the dev branch of the code. This is where we will be making our commits.
 
 - Getting started with the project
   1. use `cd choredom-client` from your terminal or git bash to move into the project folder
