@@ -1,3 +1,44 @@
+# For group members
+
+- First make sure you have git installed
+  - if you're on linux or mac open up your terminal and type `git --version`
+  - you should see something like 'git version 2.14.1'
+  - its okay if you see a different version number
+  - if you're on windows and don't have git installed, you can install git from [Git Website](https://git-scm.com/downloads)
+    - make sure that you use the **checkout Windows-style, commit Unix-style line endings chosen**
+
+- Next, make sure that you have nodejs and npm installed
+  - linux and mac go to term and type `node --version` and `npm --version`
+  - windows open up your command prompt and type node --version
+
+  - installation instructions can be [found here](https://nodejs.org/en/download/)
+
+
+- Now clone this project
+  1. Click on the green button on this page that says clone or download
+  2. Copy the url inside of the box
+  3. open your terminal or git bash if you're on windows
+  4. move to the directory you want our project to reside
+  5. type 'git clone ' and then paste the copied text
+  6. hit enter and you chould clone the project
+  7. Once the project is cloned onto your machine use `git checkout dev` to change to the dev branch of the code. This is where we will be making our commits.
+
+- Getting started with the project
+  1. use `cd choredom-client` from your terminal or git bash to move into the project folder
+  2. type `npm install` into your terminal or gitbash to install dependencies
+  3. After you're finished installing, you can type `npm start` to start the dev server
+  4. Open a browser to localhost:3000 and you should see the app.
+  5. since we are using hot reloading, when you save a project file the browser should automatically refresh
+
+- Using git to update your local code
+  - Once you've cloned the project you can use the command `git pull origin master` to pull down any code changes on the master branch
+  - if you want to pull code down from a different branch use `git pull origin branch` where branch is the branch you want to pull down.
+  - Once you've made your changes and committed them locally, use `git push origin master` to push to the master branch on github.
+
+  - **Note: We will be committing to dev most of the time so use `git pull/push origin dev` while in the dev branch on your machine(`git checkout dev` incase you forget how to switch to the dev branch on your machine)**
+
+- If you have any issues or have a question post your question in our groupme
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
