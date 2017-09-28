@@ -1,3 +1,7 @@
+// the following import allows us to use bootstrap across our entire project
+// we will not be using this directly, but we will be using it through 
+// the react-boostrap package - Will
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,10 +12,7 @@ import { Provider } from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import appReducer from './reducers/'
 
-// the following import allows us to use bootstrap across our entire project
-// we will not be using this directly, but we will be using it through 
-// the react-boostrap package
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 // here we create the store for redux from our combined reducers - Will
 
