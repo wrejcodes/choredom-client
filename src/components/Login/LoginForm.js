@@ -5,7 +5,7 @@ import './LoginForm.css';
 class LoginForm extends Component {
 	render(){
 		return(
-			<Form horizontal>
+			<Form horizontal className="form-container">
 			    <FormGroup controlId="formHorizontalEmail">
 			        <Col componentClass={ControlLabel} sm={2}>
 			        	Email
