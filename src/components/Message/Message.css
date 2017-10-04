@@ -1,0 +1,27 @@
+.warn{
+	background-color:rgba(200,20,30,.5);
+}
+
+.success{
+	background-color:rgba(20,200,30,.5);
+}
+
+.message{
+	width:50%;
+	padding:20px;
+	margin:0;
+	text-align: center;
+}
+
+.right{
+	float:right;
+	
+}
+
+.warn > .right{
+	color:rgba(100,10,10,.5);
+}
+
+.success > .right {
+	color:rgba(10,100,10,.5);
+}

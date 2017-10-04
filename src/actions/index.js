@@ -1,4 +1,22 @@
-// This will be our main actions page we might end up splitting these up later
-// for now just put all of our actions in this file
-// we should export each action object creator here as well - Will
+export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
+export const REMOVE_FLASH_MESSAGE = 'REMOVE_FLASH_MESSAGE';
+let id = 0;
 
+// here we list all of our action creators
+
+export const add_flash_message = (message, message_style) =>(
+	{
+		type: ADD_FLASH_MESSAGE,
+		id: id++,
+		message,
+		message_style
+	}
+);
+
+
+export const remove_flash_message = (id) =>(
+	{
+		type: REMOVE_FLASH_MESSAGE,
+		id
+	}
+);

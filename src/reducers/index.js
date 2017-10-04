@@ -1,10 +1,9 @@
-// we need to import other reducers here
-import { combineReducers } from 'redux';
+import { combineReducers} from 'redux';
+import flash_messages from './flash_messages'
 
-
-const appReducer = combineReducers({
-	// each reducer that we import should be here
-
+const rootReducer = combineReducers({
+	// here is where we'll add all of our reducers
+	flash_messages
 });
 
-export default appReducer;
+export default rootReducer;
