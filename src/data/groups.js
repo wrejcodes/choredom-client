@@ -23,8 +23,8 @@ const groups = [
   {
     id: 4,
     name: "Group Delta",
-    userIDS: [2, 3, 4],
-    adminID: 4
+    userIDs: [2, 3, 4],
+    adminID: 4,
   },
 ]
 export default groups;
