@@ -2,28 +2,28 @@ const groups = [
   {
     id: 1,
     name: "Group Alpha",
-    userIDs: [1, 2, 4],
+    userIDs: [1, 2, 3],
     adminID: 1,
   },
 
   {
     id: 2,
     name: "Group Beta",
-    userIDs: [1, 3, 4],
+    userIDs: [2, 3, 4],
     adminID: 2,
   },
 
   {
     id: 3,
     name: "Group Gamma",
-    userIDs: [1, 2, 3],
+    userIDs: [3, 4, 1],
     adminID: 3,
   },
 
   {
     id: 4,
     name: "Group Delta",
-    userIDs: [2, 3, 4],
+    userIDs: [4, 1, 2],
     adminID: 4,
   },
 ]

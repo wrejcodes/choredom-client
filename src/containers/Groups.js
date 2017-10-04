@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const user_groups = (groups, current_user)=>{
+export const user_groups = (groups, current_user)=>{
 	return groups.filter( (group) =>{
 		let userIDs = group.userIDs;
 		return userIDs.includes(current_user);

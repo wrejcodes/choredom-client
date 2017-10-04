@@ -26,7 +26,7 @@ class Main extends Component{
 				<Switch>
 					<Route exact path="/" component={ logged_in ? Dashboard : Welcome} />
 					<Route path="/dashboard" component={Dashboard} />
-					<Route path="/login" component={Login} /> 
+					<Route path="/login" component={Login} />
 					<Route path="*" component={NotFound} />
 				</Switch>
 			</main>

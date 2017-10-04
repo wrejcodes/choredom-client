@@ -5,7 +5,8 @@ const chores = [
     description: "Scrub the dishes with soap and water until clean.",
     startTime: new Date(2017, 10, 4),
     endTime: new Date(2017, 10, 7),
-    belongsToGroup: [1],
+    belongsToGroup: 1,
+    belongsToUser: 1,
   },
 
   {
@@ -14,7 +15,8 @@ const chores = [
     description: "Take the trash bag from the kitchen and place it in the roadside trashbin.",
     startTime: new Date(2017, 10, 4),
     endTime: new Date(2017, 10, 6),
-    belongsToGroup: [2],
+    belongsToGroup: 2,
+    belongsToUser: 2,
   },
 
   {
@@ -23,7 +25,8 @@ const chores = [
     description: "Take a broom, and use sweeping motions with the bristles to clean dust and dirt off of the front porch.",
     startTime: new Date(2017, 10, 4),
     endTime: new Date(2017, 10, 5),
-    belongsToGroup: [3],
+    belongsToGroup: 3,
+    belongsToUser: 1,
   },
 
   {
@@ -32,7 +35,8 @@ const chores = [
     description: "Clean the car, soap and armor all is under the kitchen sink.",
     startTime: new Date(2017, 10, 4),
     endTime: new Date(2017, 10, 6),
-    belongsToGroup: [4],
+    belongsToGroup: 4,
+    belongsToUser: 4,
   }
 ]
 

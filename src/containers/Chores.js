@@ -1,21 +1,19 @@
 import ChoresList from '../components/Chores/ChoreList';
 import {connect} from 'react-redux';
+import {user_groups} from './Groups';
 
 const mapStateToProps = (state) => {
   return {
-    current_group: state.current_group,
     current_user: state.current_user,
-    chores: user_chores(state.current_group, state.current_user, state.chores)
-  }
+    groups: user_groups(state.groups, state.current_use),
+    chores: user_chores(state.current_user, state.chores)
+    }
 }
 
-const user_chores = (current_group, current_user, chores)=>{
-  console.log(current_group);
-  console.log(current_user);
-  console.log(chores);
-  return chores.filter( (chores) =>{
-    let belongsToGroup = chores.belongsToGroup;
-    return belongsToGroup.includes(current_group);
+const user_chores = (current_user, chores)=>{
+
+  return chores.filter( (chore) =>{
+    return chore.belongsToUser === current_user;
   })
 }
 
