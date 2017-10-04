@@ -1,5 +1,5 @@
 // the following import allows us to use bootstrap across our entire project
-// we will not be using this directly, but we will be using it through 
+// we will not be using this directly, but we will be using it through
 // the react-boostrap package - Will
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
@@ -19,7 +19,7 @@ import chores from './data/chores';
 
 // here we create the store for redux from our combined reducers - Will
 
-const store = createStore(appReducer,{current_user: 1, logged_in: true, groups, users, chores});
+const store = createStore(appReducer,{current_user: 1, current_group: 1, logged_in: true, groups, users, chores});
 
 ReactDOM.render(
 	// here we set up the router for react-router to work properly for client side routing
