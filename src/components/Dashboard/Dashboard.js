@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect } from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
+import Groups from '../../containers/Groups';
 
 
 class Dashboard extends Component{
@@ -9,7 +10,7 @@ class Dashboard extends Component{
 		return(
 			<div>
 			{
-			logged_in ? <h1>We logged in boys</h1> : (<Redirect to="/" />)
+			logged_in ? <Groups /> : (<Redirect to="/" />)
 			}
 			</div>
 		);

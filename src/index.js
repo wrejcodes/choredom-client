@@ -19,7 +19,7 @@ import chores from './data/chores';
 
 // here we create the store for redux from our combined reducers - Will
 
-const store = createStore(appReducer,{current_user: 1, logged_in: false, groups, users, chores});
+const store = createStore(appReducer,{current_user: 1, logged_in: true, groups, users, chores});
 
 ReactDOM.render(
 	// here we set up the router for react-router to work properly for client side routing
