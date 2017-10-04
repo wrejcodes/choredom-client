@@ -10,13 +10,16 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
-import appReducer from './reducers/'
+import appReducer from './reducers/';
+import groups from './data/groups';
+import users from './data/users';
+import chores from './data/chores';
 
 
 
 // here we create the store for redux from our combined reducers - Will
 
-const store = createStore(appReducer);
+const store = createStore(appReducer,{current_user: 1, logged_in: false, groups, users, chores});
 
 ReactDOM.render(
 	// here we set up the router for react-router to work properly for client side routing
