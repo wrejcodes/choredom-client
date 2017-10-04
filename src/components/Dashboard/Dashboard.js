@@ -3,6 +3,7 @@ import {connect } from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
 import Groups from '../../containers/Groups';
 import Chores from '../../containers/Chores';
+import { Col } from 'react-bootstrap';
 
 
 class Dashboard extends Component{
@@ -10,16 +11,18 @@ class Dashboard extends Component{
 		let {logged_in} = this.props;
 		return(
 			<div>
-			<div>
-			{
-			logged_in ? <Groups /> : (<Redirect to="/" />)
-			}
-			</div>
-			<div>
-			{
-				<Chores/>
-			}
-			</div>
+				<div>
+					{
+						logged_in ? (<Col md={6}><Groups /></Col>) : (<Redirect to="/" />)
+					}
+				</div>
+				<div>
+				{	
+					<Col md={6}>
+						<Chores/>
+					</Col>
+				}
+				</div>
 			</div>
 		);
 	}
