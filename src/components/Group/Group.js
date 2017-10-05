@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import { Table } from 'react-bootstrap';
-import './Group.css'
+import { FormattedRelative } from 'react-intl';
+import './Group.css';
 
 class Group extends Component{
 
 	render(){
+
 		let {match, users, chores, groups} = this.props;
 
 		const groupId = parseInt(match.params.id, 10);
@@ -28,7 +30,7 @@ class Group extends Component{
 			return currentGroup.userIDs.includes(user.id);
 		});
 
-		const usersWithChore = groupUsers.map( (user) =>{
+		this.usersWithChore = groupUsers.map( (user) =>{
 			let temp = [];
 			let userChore = null;
 			temp.push(user);
@@ -40,25 +42,27 @@ class Group extends Component{
 			temp.push(userChore);
 			return temp; 
 		});
-
-		const tableRows = usersWithChore.map( (userAndChore, index) => {
+		
+		const tableRows = this.usersWithChore.map( (userAndChore, index) => {
 			let name = userAndChore[0].name;
 			let chore = userAndChore[1];
 			return(<tr key={index}>
 						<td>{name}</td>
 						<td>{chore && chore.name}</td>
 						<td>{chore && chore.description}</td>
+						<td>{chore && <FormattedRelative value={chore.endTime}/>}</td>
 				   </tr>);
 		})
 
 		return(
 			<div className="Group-container container">
-				<Table bordered condensed responsive>
+				<Table bordered condensed>
 					<thead>
 						<tr>
 							<th>Users</th>
 							<th>Chore for User</th>
 							<th>Description for chore</th>
+							<th>Due</th>
 						</tr>
 					</thead>
 					<tbody>

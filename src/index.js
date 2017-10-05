@@ -14,6 +14,7 @@ import appReducer from './reducers/';
 import groups from './data/groups';
 import users from './data/users';
 import chores from './data/chores';
+import { IntlProvider } from 'react-intl';
 
 
 
@@ -25,8 +26,10 @@ ReactDOM.render(
 	// here we set up the router for react-router to work properly for client side routing
 	// we also set the store for redux and pass it to the Provider - Will
 	<Provider store={store}>
-		<Router>
-			<App />
-		</Router>
+		<IntlProvider locale="en">
+			<Router>
+				<App />
+			</Router>
+		</IntlProvider>
 	</Provider>, document.getElementById('root'));
 registerServiceWorker();

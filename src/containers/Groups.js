@@ -1,4 +1,5 @@
 import GroupList from '../components/Group/GroupList';
+import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -16,6 +17,6 @@ export const user_groups = (groups, current_user)=>{
 	})
 }
 
-const Groups = connect(mapStateToProps)(GroupList);
+const Groups = withRouter(connect(mapStateToProps)(GroupList));
 
 export default Groups;
