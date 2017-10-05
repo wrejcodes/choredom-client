@@ -3,9 +3,6 @@ import Message from '../Message/Message'
 import './MessageList.css';
 
 class MessageList extends Component {
-	constructor(props){
-		super(props);
-	}
 
 	render(){
 		let {messages, handleMessageClick} = this.props;
