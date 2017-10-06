@@ -14,7 +14,7 @@ export const flash_messages = (state = [], action) =>{
 			];
 		case REMOVE_FLASH_MESSAGE:
 			return state.filter( (message) =>{
-				return message.id !== action.id 
+				return message.id !== action.id; 
 			})
 		default: 
 			return state;

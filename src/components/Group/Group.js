@@ -31,20 +31,28 @@ class Group extends Component{
 			return currentGroup.userIDs.includes(user.id);
 		});
 
-		this.usersWithChore = groupUsers.map( (user) =>{
-			let temp = [];
-			let userChore = null;
-			temp.push(user);
-			groupChores.forEach( (chore) => {
-				if(chore.belongsToUser === user.id){
-					userChore = chore;
+		const findUser = (id) =>{
+			let userToFind = null;
+			groupUsers.forEach((user)=>{
+				if(id === user.id){
+					userToFind = user; 
 				}
 			})
-			temp.push(userChore);
+
+			return userToFind;
+		}
+
+		this.usersWithChore = groupChores.map( (chore) =>{
+			let temp = [];
+			let user = findUser(chore.belongsToUser);
+			temp.push(user);
+			temp.push(chore);
 			return temp; 
 		});
 		
 		const choreArray = [];
+
+		console.log(this.usersWithChore);
 
 		this.usersWithChore.forEach( (userAndChore, index) => {
 			let user = userAndChore[0];
@@ -54,7 +62,8 @@ class Group extends Component{
 				<Col md={4}>
 					<ChoreItem 
 					 key={index} 
-				     user={user}
+					 user={user}
+				     users={groupUsers}
 					 chore={chore}
 					 group={currentGroup} />
 				</Col>);

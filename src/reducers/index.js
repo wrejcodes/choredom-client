@@ -9,9 +9,11 @@ const groups = (state = [], action)=>{
 		return state.map((group)=>{
 			let temp = group;
 			if (group.id === action.groupId){
-				let tempPoints = Object.assign({},group.points);
+				let tempPoints = Object.assign({}, group.points);
 				tempPoints[`${action.userId}`] += action.points;
-				temp = Object.assign({},...group, {points: tempPoints}); 
+				temp = Object.assign({},group, {points: tempPoints});
+				console.log(group);
+				console.log(temp); 
 			}
 			return temp;
 		});
@@ -21,7 +23,7 @@ const groups = (state = [], action)=>{
 			if (group.id === action.groupId){
 				let tempPoints = Object.assign({},group.points);
 				tempPoints[`${action.userId}`] -= action.points;
-				temp = Object.assign({},...group, {points: tempPoints}); 
+				temp = Object.assign({},group, {points: tempPoints}); 
 			}
 			return temp;
 		});
@@ -42,7 +44,8 @@ const chores = (state = [], action)=>{
 				let tempPoints = Object.assign({},chore.points);
 				tempPoints.worth = tempPoints.steal;
 				tempPoints.steal = 0;
-				temp = Object.assign({}, ...chore, {belongsToUser: action.assignTo}, {points: tempPoints});
+				temp = Object.assign({}, chore, {belongsToUser: action.assignTo}, {points: tempPoints});
+				console.log(temp);
 			}
 			return temp;
 		});
@@ -50,7 +53,7 @@ const chores = (state = [], action)=>{
 		return state.map((chore)=>{
 			let temp = chore;
 			if (chore.id === action.choreId){
-				temp = Object.assign({},...chore, {belongsToUser: action.assignTo});
+				temp = Object.assign({},chore, {belongsToUser: action.assignTo});
 			}
 			return temp;
 		});

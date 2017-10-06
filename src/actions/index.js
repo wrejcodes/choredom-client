@@ -36,29 +36,37 @@ export const steal_chore = (choreId, assignTo) =>(
 	}
 );
 
-export const buy_out_chore = (choreId, assignTo) =>{
-	type: BUY_OUT_CHORE,
-	choreId,
-	assignTo
-}
+export const buy_out_chore = (choreId, assignTo) =>(
+	{
+		type: BUY_OUT_CHORE,
+		choreId,
+		assignTo
+	}
+)
 
-export const remove_chore = (choreId) =>{
-	type: REMOVE_CHORE,
-	choreId
-}
+export const remove_chore = (choreId) =>(
+	{
+		type: REMOVE_CHORE,
+		choreId
+	}
+)
 
-export const add_points = (groupId, userId, points) =>{
-	type: ADD_POINTS,
-	groupId,
-	userId,
-	points
-}
+export const add_points = (groupId, userId, points) =>(
+	{
+		type: ADD_POINTS,
+		groupId,
+		userId,
+		points
+	}
+)
 
-export const remove_points = (groupId, userId, points) =>{
-	type: REMOVE_POINTS,
-	groupId,
-	userId,
-	points
-}
+export const remove_points = (groupId, userId, points) =>(
+	{	
+		type: REMOVE_POINTS,
+		groupId,
+		userId,
+		points
+	}
+)
 
 

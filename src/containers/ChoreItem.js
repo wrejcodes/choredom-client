@@ -1,4 +1,5 @@
 import Chore from '../components/Chores/Chore';
+import {buy_out_chore, steal_chore, remove_chore, add_points, remove_points} from '../actions/';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state, ownProps) =>{
@@ -12,7 +13,11 @@ const mapStateToProps = (state, ownProps) =>{
 
 const mapDispatchToProps = (dispatch) =>{
 	return {
-
+		handleSteal: (choreId, assignTo)=> dispatch(steal_chore(choreId,assignTo)),
+		handleBuyOutChore: (choreId, assignTo)=> dispatch(buy_out_chore(choreId, assignTo)),
+		handleCompleteChore: (choreId) => dispatch(remove_chore(choreId)),
+		handleAwardPoints: (groupId, userId, points) => dispatch(add_points(groupId, userId, points)),
+		handleSpendPoints: (groupId, userId, points) => dispatch(remove_points(groupId, userId, points))
 	}
 }
 
