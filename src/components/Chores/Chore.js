@@ -50,7 +50,7 @@ class Chore extends Component{
 		let stealItem = null;
 		let buyOut = null;
 		stealItem = chore.points.steal > 0 && <ListGroupItem>Steal to earn: {chore.points.steal - chore.points.worth} extra points</ListGroupItem>;
-		buyOut = group.points[`${user.id}`] >= chore.points.worth && <Button bsStyle={'danger'} onClick={()=>handleBuyOutChore(chore.id, randomId(users) )}>Reassign</Button>;
+		buyOut = group.points[`${user.id}`] >= chore.points.worth && <Button bsStyle={'danger'} onClick={()=>{handleBuyOutChore(chore.id, randomId(users)); handleSpendPoints(group.id,current_user,chore.points.buy)}}>Reassign</Button>;
 		return(
 			<Well className="Chore-container" large>
 
@@ -60,12 +60,13 @@ class Chore extends Component{
 						<ListGroupItem>Due: <FormattedRelative value={chore.endTime}/></ListGroupItem>
 						<ListGroupItem>Belongs to: {activeOwner}</ListGroupItem>
 						<ListGroupItem>Worth: {chore.points.worth} points</ListGroupItem>
+						<ListGroupItem>Buy out: {chore.points.buy} points</ListGroupItem>
 						{stealItem}
 						
 					</ListGroup>
 				</Panel>
 				{stealOrComplete}
-				{chore.belongsToUser === current_user && buyOut }
+				{(chore.belongsToUser === current_user && group.points[`${current_user}`] > chore.points.buy) && buyOut }
 			</Well>
 		);
 	}
