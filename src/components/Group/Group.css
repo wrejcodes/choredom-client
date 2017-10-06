@@ -1,3 +1,8 @@
-td {
-	text-align: left;
+.header{
+	margin-top: 0;
+}
+
+.titleRow{
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
