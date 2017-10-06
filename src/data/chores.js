@@ -7,6 +7,11 @@ const chores = [
     endTime: Date.now() + (1000 * 24 * 7 * 60 * 60),
     belongsToGroup: 1,
     belongsToUser: 1,
+    points: {
+      worth: 25,
+      buy: 75,
+      steal: 40,
+    }
   },
 
   {
@@ -17,6 +22,11 @@ const chores = [
     endTime: Date.now() + (1000 * 48 * 60 * 60),
     belongsToGroup: 2,
     belongsToUser: 2,
+    points: {
+      worth: 15,
+      buy: 40,
+      steal: 30,
+    }
   },
 
   {
@@ -27,6 +37,11 @@ const chores = [
     endTime: Date.now() - (1000 * 3 * 60 * 60),
     belongsToGroup: 3,
     belongsToUser: 3,
+    points: {
+      worth: 15,
+      buy: 30,
+      steal: 25,
+    }
   },
 
   {
@@ -37,6 +52,11 @@ const chores = [
     endTime: Date.now() - (1000 * 24 * 3  * 60 * 60),
     belongsToGroup: 4,
     belongsToUser: 4,
+    points: {
+      worth: 30,
+      buy: 90,
+      steal: 60,
+    }
   },
     {
     id: 5,
@@ -46,6 +66,11 @@ const chores = [
     endTime: Date.now() + (1000 * 24 * 7 * 60 * 60),
     belongsToGroup: 1,
     belongsToUser: 2,
+    points: {
+      worth: 40,
+      buy: 100,
+      steal: 70,
+    }
   },
 
   {
@@ -56,6 +81,11 @@ const chores = [
     endTime: Date.now() + (1000 * 48 * 60 * 60),
     belongsToGroup: 2,
     belongsToUser: 3,
+    points: {
+      worth: 20,
+      buy: 1000,
+      steal: 0,
+    }
   },
 
   {
@@ -66,6 +96,11 @@ const chores = [
     endTime: Date.now() - (1000 * 3 * 60 * 60),
     belongsToGroup: 3,
     belongsToUser: 4,
+    points: {
+      worth: 20,
+      buy: 50,
+      steal: 40,
+    }
   },
 
   {
@@ -76,6 +111,11 @@ const chores = [
     endTime: Date.now() - (1000 * 24 * 3  * 60 * 60),
     belongsToGroup: 4,
     belongsToUser: 1,
+    points: {
+      worth: 10,
+      buy: 30,
+      steal: 15,
+    }
   }, 
     {
     id: 9,
@@ -85,6 +125,11 @@ const chores = [
     endTime: Date.now() + (1000 * 24 * 7 * 60 * 60),
     belongsToGroup: 1,
     belongsToUser: 3,
+    points: {
+      worth: 15,
+      buy: 50,
+      steal: 25,
+    }
   },
 
   {
@@ -95,6 +140,12 @@ const chores = [
     endTime: Date.now() + (1000 * 48 * 60 * 60),
     belongsToGroup: 2,
     belongsToUser: 4,
+    points: {
+      worth: 30,
+      buy: 75,
+      steal: 45,
+    }
+
   },
 
   {
@@ -105,6 +156,11 @@ const chores = [
     endTime: Date.now() - (1000 * 3 * 60 * 60),
     belongsToGroup: 3,
     belongsToUser: 1,
+    points: {
+      worth: 50,
+      buy: 120,
+      steal: 90,
+    }
   },
 
   {
@@ -115,6 +171,11 @@ const chores = [
     endTime: Date.now() - (1000 * 24 * 3  * 60 * 60),
     belongsToGroup: 4,
     belongsToUser: 2,
+    points: {
+      worth: 20,
+      buy: 40,
+      steal: 50,
+    }
   }
 ]
 
