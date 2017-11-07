@@ -1,35 +1,8 @@
 import { combineReducers} from 'redux';
 import flash_messages from './flash_messages';
+import groups from './group';
 import {REMOVE_CHORE, STEAL_CHORE, BUY_OUT_CHORE} from '../actions/';
-import {ADD_POINTS, REMOVE_POINTS} from '../actions/';
 
-const groups = (state = [], action)=>{
-	switch(action.type){
-		case ADD_POINTS:
-		return state.map((group)=>{
-			let temp = group;
-			if (group.id === action.groupId){
-				let tempPoints = Object.assign({}, group.points);
-				tempPoints[`${action.userId}`] += action.points;
-				temp = Object.assign({},group, {points: tempPoints});
-				console.log(group);
-				console.log(temp); 
-			}
-			return temp;
-		});
-		case REMOVE_POINTS:
-		return state.map((group)=>{
-			let temp = group;
-			if (group.id === action.groupId){
-				let tempPoints = Object.assign({},group.points);
-				tempPoints[`${action.userId}`] -= action.points;
-				temp = Object.assign({},group, {points: tempPoints}); 
-			}
-			return temp;
-		});
-		default: return state;
-	}
-};
 const users = (state = [], action)=>{
 	switch(action.type){
 		default: return state;
