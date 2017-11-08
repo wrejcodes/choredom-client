@@ -5,6 +5,7 @@ export const BUY_OUT_CHORE = 'BUY_OUT_CHORE';
 export const REMOVE_CHORE = 'REMOVE_CHORE';
 export const ADD_POINTS = 'ADD_POINTS';
 export const REMOVE_POINTS = 'REMOVE_POINTS';
+export const SIGN_OUT = 'SIGN_OUT';
 
 
 let message_id = 0;
@@ -66,6 +67,12 @@ export const remove_points = (groupId, userId, points) =>(
 		groupId,
 		userId,
 		points
+	}
+)
+
+export const sign_out = () => (
+	{
+		type: SIGN_OUT
 	}
 )
 

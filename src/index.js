@@ -20,7 +20,7 @@ import { IntlProvider } from 'react-intl';
 
 // here we create the store for redux from our combined reducers - Will
 
-const store = createStore(appReducer,{current_user: 1, current_group: 1, logged_in: false, groups, users, chores});
+const store = createStore(appReducer,{current_user: 1, current_group: 1, logged_in: true, groups, users, chores});
 
 ReactDOM.render(
 	// here we set up the router for react-router to work properly for client side routing

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {FormGroup, FormControl, ControlLabel, Form, Col, Checkbox, Button } from 'react-bootstrap';
 import './SignUp.css';
+import {Link} from 'react-router-dom';
 
 class SignUpForm extends Component {
 	render(){
 		return(
-			
 			<Form horizontal className="form-container">
 			    <FormGroup controlId="formUsername">
 			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
@@ -57,9 +57,13 @@ class SignUpForm extends Component {
 			      	</Col>
 			    </FormGroup>
 
+                            <FormGroup>
+			      	<Col smOffset={4} sm={4}>
+			        	<Link to = '/'> Sign in with an existing account </Link>
+			      	</Col>
+			    </FormGroup>
 
 			</Form>
-			
 		);
 	}
 }

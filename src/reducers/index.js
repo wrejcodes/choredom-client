@@ -2,6 +2,7 @@ import { combineReducers} from 'redux';
 import flash_messages from './flash_messages';
 import groups from './group';
 import chores from './chores';
+import logged_in from './logged_in';
 
 const users = (state = [], action)=>{
 	switch(action.type){
@@ -9,11 +10,6 @@ const users = (state = [], action)=>{
 	}
 };
 
-const logged_in = (state = false, action)=>{
-	switch(action.type){
-		default: return state;
-	}
-};
 const current_user = (state = 0, action)=>{
 	switch(action.type){
 		default: return state;

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './Main.css';
 import Welcome from '../Welcome/Welcome';
-import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import NotFound from '../NotFound/NotFound';
 import Dashboard from '../Dashboard/Dashboard';
@@ -13,8 +12,6 @@ import GroupInfo from '../../containers/GroupInfo';
 
 
 class Main extends Component{
-
-
 	render(){
 		// this component will load different content based on the route that is
 		// provided. If no path is matched 404 is loaded. - Will
