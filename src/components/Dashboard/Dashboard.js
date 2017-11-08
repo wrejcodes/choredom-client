@@ -16,12 +16,10 @@ class Dashboard extends Component{
 						logged_in ? (<Col md={6}><Groups /></Col>) : (<Redirect to="/" />)
 					}
 				</div>
-				<div>
-				{	
+				<div>	
 					<Col md={6}>
 						<Chores/>
 					</Col>
-				}
 				</div>
 			</div>
 		);
