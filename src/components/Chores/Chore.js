@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Well, Panel, Image, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import { Well, Panel, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import { FormattedRelative } from 'react-intl';
 import { emojify } from 'react-emojione';
 

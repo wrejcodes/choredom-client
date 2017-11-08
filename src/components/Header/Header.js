@@ -10,7 +10,7 @@ class Header extends Component{
 		return(
 			<Navbar className="nav-container">
 				<Navbar.Header>
-					<Navbar.Brand><Link to='/' >Choredom</Link></Navbar.Brand>
+					<Navbar.Brand><Link to='/' > Choredom </Link></Navbar.Brand>
 				</Navbar.Header>
 			</Navbar>
 		);

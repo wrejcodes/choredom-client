@@ -37,6 +37,14 @@ class LoginForm extends Component {
 			        	</Button>
 			      	</Col>
 			    </FormGroup>
+
+			    <FormGroup>
+			      	<Col smOffset={2} sm={10}>
+			        	<Button type="button" bsStyle = "link" bsSize = "small">
+			         		Sign up
+			        	</Button>
+			      	</Col>
+			    </FormGroup>
 			</Form>
 		);
 	}

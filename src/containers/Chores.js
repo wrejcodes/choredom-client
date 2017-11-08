@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
 }
 
 const user_chores = (current_user, chores)=>{
-
   return chores.filter( (chore) =>{
     return chore.belongsToUser === current_user;
   })
