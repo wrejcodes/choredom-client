@@ -1,20 +1,10 @@
 export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
 export const REMOVE_FLASH_MESSAGE = 'REMOVE_FLASH_MESSAGE';
-export const STEAL_CHORE = 'STEAL_CHORE';
-export const BUY_OUT_CHORE = 'BUY_OUT_CHORE';
-export const REMOVE_CHORE = 'REMOVE_CHORE';
-export const ADD_POINTS = 'ADD_POINTS';
-export const REMOVE_POINTS = 'REMOVE_POINTS';
 export const SIGN_OUT = 'SIGN_OUT';
-export const FETCH_GROUPS_START = 'FETCH_GROUPS_START';
-export const FETCH_GROUPS_SUCCESS = 'FETCH_GROUPS_SUCCESS';
-export const FETCH_GROUPS_END = 'FETCH_GROUPS_END';
-export const FETCH_GROUPS_ERROR = 'FETCH_GROUPS_ERROR';
-
 
 let message_id = 0;
 
-// here we list all of our action creators
+// Index contains the basic actions
 
 export const add_flash_message = (message, message_style) =>(
 	{
@@ -25,7 +15,6 @@ export const add_flash_message = (message, message_style) =>(
 	}
 );
 
-
 export const remove_flash_message = (id) =>(
 	{
 		type: REMOVE_FLASH_MESSAGE,
@@ -33,81 +22,10 @@ export const remove_flash_message = (id) =>(
 	}
 );
 
-export const steal_chore = (choreId, assignTo) =>(
-	{
-		type: STEAL_CHORE,
-		choreId,
-		assignTo
-	}
-);
-
-export const buy_out_chore = (choreId, assignTo) =>(
-	{
-		type: BUY_OUT_CHORE,
-		choreId,
-		assignTo
-	}
-)
-
-export const remove_chore = (choreId) =>(
-	{
-		type: REMOVE_CHORE,
-		choreId
-	}
-)
-
-export const add_points = (groupId, userId, points) =>(
-	{
-		type: ADD_POINTS,
-		groupId,
-		userId,
-		points
-	}
-)
-
-export const remove_points = (groupId, userId, points) =>(
-	{	
-		type: REMOVE_POINTS,
-		groupId,
-		userId,
-		points
-	}
-)
-
 export const sign_out = () => (
 	{
 		type: SIGN_OUT
 	}
-)
-
-export const fetchGroupsStart = (userId) => (
-	{
-		type: FETCH_GROUPS_START,
-		userId
-	}
-)
-
-export const fetchGroupsSuccess = (groups) => (
-	{
-		type: FETCH_GROUPS_SUCCESS,
-		groups
-	}
-
-)
-
-export const fetchGroupsEnd = () => (
-	{
-		type: FETCH_GROUPS_END
-	}
-
-)
-
-export const fetchGroupsError = (message) => (	
-	{
-		type: FETCH_GROUPS_ERROR,
-		message
-	}
-
 )
 
 

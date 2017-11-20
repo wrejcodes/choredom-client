@@ -1,5 +1,6 @@
 import Chore from '../components/Chores/Chore';
-import {buy_out_chore, steal_chore, remove_chore, add_points, remove_points} from '../actions/';
+import {buy_out_chore, steal_chore, remove_chore} from '../actions/chores';
+import {add_points, remove_points} from '../actions/groups'
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state, ownProps) =>{

@@ -1,4 +1,4 @@
-import {REMOVE_CHORE, STEAL_CHORE, BUY_OUT_CHORE} from '../actions/';
+import {REMOVE_CHORE, STEAL_CHORE, BUY_OUT_CHORE} from '../actions/chores';
 
 const chores = (state = [], action)=>{
 	switch(action.type){

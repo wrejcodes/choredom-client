@@ -3,7 +3,7 @@ import {ADD_POINTS,
 		FETCH_GROUPS_SUCCESS, 
 		FETCH_GROUPS_START,
 		FETCH_GROUPS_END,
-		FETCH_GROUPS_ERROR } from '../actions/';
+		FETCH_GROUPS_ERROR } from '../actions/groups';
 
 const groups = (state = [], action)=>{
 	switch(action.type){
