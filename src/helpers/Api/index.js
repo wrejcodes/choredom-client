@@ -47,8 +47,18 @@ class Api {
 
 	// this is where we can create requests for our api, whatever functionality we need
 	static fetchGroups(userId){
-		const url = baseUrl + `/groups/?user=${userId}`;
+		const url = baseUrl + `users/${userId}/groups/`;
 		try{
+			let results = request(url, getOptions(GET));
+			return results;
+		} catch(err){
+			throw err;
+		}
+	}
+
+	static fetchChores(userId, groupId){
+		const url = baseUrl + `users/${userId}/groups/${groupId}/chores/`;
+		try {
 			let results = request(url, getOptions(GET));
 			return results;
 		} catch(err){
