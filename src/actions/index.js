@@ -6,6 +6,10 @@ export const REMOVE_CHORE = 'REMOVE_CHORE';
 export const ADD_POINTS = 'ADD_POINTS';
 export const REMOVE_POINTS = 'REMOVE_POINTS';
 export const SIGN_OUT = 'SIGN_OUT';
+export const FETCH_GROUPS_START = 'FETCH_GROUPS_START';
+export const FETCH_GROUPS_SUCCESS = 'FETCH_GROUPS_SUCCESS';
+export const FETCH_GROUPS_END = 'FETCH_GROUPS_END';
+export const FETCH_GROUPS_ERROR = 'FETCH_GROUPS_ERROR';
 
 
 let message_id = 0;
@@ -74,6 +78,36 @@ export const sign_out = () => (
 	{
 		type: SIGN_OUT
 	}
+)
+
+export const fetchGroupsStart = (userId) => (
+	{
+		type: FETCH_GROUPS_START,
+		userId
+	}
+)
+
+export const fetchGroupsSuccess = (groups) => (
+	{
+		type: FETCH_GROUPS_SUCCESS,
+		groups
+	}
+
+)
+
+export const fetchGroupsEnd = () => (
+	{
+		type: FETCH_GROUPS_END
+	}
+
+)
+
+export const fetchGroupsError = (message) => (	
+	{
+		type: FETCH_GROUPS_ERROR,
+		message
+	}
+
 )
 
 
