@@ -37,10 +37,9 @@ export const fetchChoresStart = (userId,groupId) => (
 	}
 )
 
-export const fetchChoresSuccess = (group,chores) => (
+export const fetchChoresSuccess = (chores) => (
 	{
 		type: FETCH_CHORES_SUCCESS,
-		group,
 		chores
 	}
 

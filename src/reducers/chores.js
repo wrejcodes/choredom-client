@@ -1,4 +1,10 @@
-import {REMOVE_CHORE, STEAL_CHORE, BUY_OUT_CHORE} from '../actions/chores';
+import {REMOVE_CHORE, 
+		STEAL_CHORE, 
+		BUY_OUT_CHORE,
+		FETCH_CHORES_START,
+		FETCH_CHORES_SUCCESS,
+		FETCH_CHORES_ERROR,
+		FETCH_CHORES_END} from '../actions/chores';
 
 const chores = (state = [], action)=>{
 	switch(action.type){
@@ -29,5 +35,27 @@ const chores = (state = [], action)=>{
 		default: return state;
 	}
 };
+
+const choresLoading = (state=false, action) =>{
+	switch(action.type){
+		case FETCH_CHORES_START:
+			return true;
+		case FETCH_CHORES_END:
+			return false;
+		default:
+			return state;
+	}			
+}
+
+const choresError = (state = '', action) => {
+	switch(action.type){
+		case FETCH_CHORES_ERROR:
+			return action.message;
+		case FETCH_CHORES_START:
+			return '';
+		default:
+			return state;
+	}
+}
 
 export default chores;
