@@ -7,14 +7,23 @@ class SignUpForm extends Component {
 	render(){
 		return(
 			<Form horizontal className="form-container">
-			    <FormGroup controlId="formUsername">
-			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
-			        	Username
-			      	</Col>
-			      	<Col sm={4}>
-			        	<FormControl type="username" placeholder="User Name" />
-			      	</Col>
-			    </FormGroup>
+			<FormGroup controlId="firstName">
+					<Col componentClass={ControlLabel} sm={2} smOffset={3}>
+						First Name
+					</Col>
+					<Col sm={4}>
+						<FormControl type="firstName" placeholder="First Name" />
+					</Col>
+			</FormGroup>
+			<FormGroup controlId="lastName">
+					<Col componentClass={ControlLabel} sm={2} smOffset={3}>
+						Last Name
+					</Col>
+					<Col sm={4}>
+						<FormControl type="lastName" placeholder="Last Name" />
+					</Col>
+			</FormGroup>
+
 
                             <FormGroup controlId="formHorizontalEmail">
 			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
@@ -22,6 +31,14 @@ class SignUpForm extends Component {
 			      	</Col>
 			      	<Col sm={4}>
 			        	<FormControl type="email" placeholder="Email" />
+			      	</Col>
+			    </FormGroup>
+					<FormGroup controlId="formUsername">
+			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
+			        	Username
+			      	</Col>
+			      	<Col sm={4}>
+			        	<FormControl type="username" placeholder="User Name" />
 			      	</Col>
 			    </FormGroup>
 
