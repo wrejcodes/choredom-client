@@ -32,6 +32,8 @@ const chores = (state = [], action)=>{
 		return state.filter((chore)=>{
 			return chore.id !== action.choreId;
 		});
+		case FETCH_CHORES_SUCCESS:
+			return action.chores;
 		default: return state;
 	}
 };
