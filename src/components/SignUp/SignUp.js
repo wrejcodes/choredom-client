@@ -8,6 +8,7 @@ class SignUpForm extends Component {
 		super(props);
 		this.validateName = this.validateName.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.validateEmail = this.validateEmail.bind(this);
 		this.state = {firstName: '', lastName:'', username: '', email: '', password: '', confirm: ''};
 	}
 
@@ -20,6 +21,18 @@ class SignUpForm extends Component {
 			return 'success';
 		} else {
 			return 'error';
+		}
+	}
+
+	validateEmail(){
+		const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		let length = this.state.email.length;
+		if(length === 0){
+			return null;
+		} else {
+			let regex = new RegExp(pattern);
+			let match = regex.test(this.state.email);
+			return match ? "success" : "error"; 
 		}
 	}
 
@@ -50,12 +63,12 @@ class SignUpForm extends Component {
 			</FormGroup>
 
 
-                            <FormGroup controlId="formHorizontalEmail">
+                            <FormGroup controlId="formHorizontalEmail" validationState={this.validateEmail()}>
 			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Email
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="email" placeholder="Email" />
+			        	<FormControl type="email" placeholder="Email" value={this.state.email} onChange={(e)=>{this.handleChange('email',e.target.value)}}/>
 			      	</Col>
 			    </FormGroup>
 					<FormGroup controlId="formUsername">
