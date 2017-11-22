@@ -1,5 +1,5 @@
 # If you are wanting to see what your component looks like, use the TestComponent component to render the component you want to see
-1. use the TestCompoenent.js.sample to base your TestComponent (Change SignUp to your component you want to see)
+1. use the TestComponent.js.sample to base your TestComponent, copy the TestComponent.js.sample into a TestComponent.js file and then modify it. (Change SignUp to your component you want to see)
 2. visit localhost:3000/test to see the component you are working on 
 
 # For group members
