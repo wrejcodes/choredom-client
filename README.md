@@ -1,3 +1,7 @@
+# If you are wanting to see what your component looks like, use the TestComponent component to render the component you want to see
+1. use the TestCompoenent.js.sample to base your TestComponent (Change SignUp to your component you want to see)
+2. visit localhost:3000/test to see the component you are working on 
+
 # For group members
 
 - First make sure you have git installed
