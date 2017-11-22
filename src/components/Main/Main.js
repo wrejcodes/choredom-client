@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Main.css';
 import Welcome from '../Welcome/Welcome';
 import SignUp from '../SignUp/SignUp';
+import AddGroup from '../AddGroup/AddGroup';
 import NotFound from '../NotFound/NotFound';
 import Dashboard from '../Dashboard/Dashboard';
 // import Groups from '../Group/Groups';
@@ -26,6 +27,7 @@ class Main extends Component{
 					<Route path="/dashboard" component={Dashboard} />
 					<Route path="/signup" component={SignUp} />
 					<Route path="/groupInfo/:id" component={GroupInfo} />
+					<Route path="/addgroup" component={AddGroup} />
 					<Route path="*" component={NotFound} />
 				</Switch>
 			</main>
