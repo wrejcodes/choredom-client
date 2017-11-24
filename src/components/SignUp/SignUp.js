@@ -9,7 +9,31 @@ class SignUpForm extends Component {
 		this.validateName = this.validateName.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.validateEmail = this.validateEmail.bind(this);
+		this.validatePassword=this.validatePassword.bind(this);
 		this.state = {firstName: '', lastName:'', username: '', email: '', password: '', confirm: ''};
+	}
+
+	validatePassword()
+	{
+		let passwordLength = this.state.password.length;
+		let confirmLength=this.state.confirm.length;
+		if(passwordLength===0&&confirmLength===0)
+		{
+			return null;
+		}
+		else
+		{
+			let p=this.state.password;
+			let c=this.state.confirm_password;
+			if(p==c)
+			{
+				return 'success';
+			}
+			else
+			{
+				return 'error';
+			}
+		}
 	}
 
 	validateName(fieldName){
@@ -32,13 +56,13 @@ class SignUpForm extends Component {
 		} else {
 			let regex = new RegExp(pattern);
 			let match = regex.test(this.state.email);
-			return match ? "success" : "error"; 
+			return match ? "success" : "error";
 		}
 	}
 
-	handleChange(fieldName, value){
+	handleChange(fieldName, e){
 		let stateObj = {};
-		stateObj[fieldName] = value;
+		stateObj[fieldName] = e.target.value;
 		this.setState(stateObj);
 	}
 
@@ -50,7 +74,7 @@ class SignUpForm extends Component {
 						First Name
 					</Col>
 					<Col sm={4}>
-						<FormControl type="firstName" placeholder="First Name" onChange={(e)=>{this.handleChange('firstName', e.target.value)}} value={this.state.firstName}  />
+						<FormControl type="firstName" placeholder="First Name" onChange={(e)=>{this.handleChange('firstName', e)}} value={this.state.firstName}  />
 					</Col>
 			</FormGroup>
 			<FormGroup controlId="lastName" validationState={this.validateName('lastName')}>
@@ -58,7 +82,7 @@ class SignUpForm extends Component {
 						Last Name
 					</Col>
 					<Col sm={4}>
-						<FormControl type="lastName" placeholder="Last Name" onChange={(e)=>{this.handleChange('lastName', e.target.value)}}/>
+						<FormControl type="lastName" placeholder="Last Name" onChange={(e)=>{this.handleChange('lastName', e)}}/>
 					</Col>
 			</FormGroup>
 
@@ -68,33 +92,33 @@ class SignUpForm extends Component {
 			        	Email
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="email" placeholder="Email" value={this.state.email} onChange={(e)=>{this.handleChange('email',e.target.value)}}/>
+			        	<FormControl type="email" placeholder="Email" value={this.state.email} onChange={(e)=>{this.handleChange('email', e)}}/>
 			      	</Col>
 			    </FormGroup>
-					<FormGroup controlId="formUsername">
+					<FormGroup controlId="formUsername" validationState={this.validateName('username')}>
 			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Username
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="username" placeholder="User Name" />
+			        	<FormControl type="username" placeholder="User Name" onChange={(e)=>{this.handleChange('username', e)}}/>
 			      	</Col>
 			    </FormGroup>
 
-			    <FormGroup controlId="formHorizontalPassword">
+			    <FormGroup controlId="formHorizontalPassword" validationState={this.validatePassword()}>
 			      	<Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Password
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="password" placeholder="Password" />
+			        	<FormControl type="password" placeholder="Password" onChange={(e)=>{this.handleChange('password', e)}}/>
 			      	</Col>
 			    </FormGroup>
 
-                            <FormGroup controlId="formHorizontalPassword">
+                            <FormGroup controlId="formHorizontalPassword" validationState={this.validatePassword()}>
 			      	<Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Confirm Password
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="confirm password" placeholder="Re-enter Password" />
+			        	<FormControl type="confirm_password" placeholder="Re-enter Password" onChange={(e)=>{this.handleChange('confirm_password', e)}}/>
 			      	</Col>
 			    </FormGroup>
 
