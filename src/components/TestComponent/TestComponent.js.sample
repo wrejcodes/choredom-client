@@ -1,0 +1,20 @@
+// This component can be used to render whatever component you would like
+// Just import it here
+import SignUp from '../SignUp/SignUp'
+import React, {Component} from 'react';
+
+
+class TestComponent extends Component{
+	render(){
+		return(
+			<div className="TestComponent-container">
+				{/* Create the component here inside of this div */}
+				<SignUp />
+			</div>
+		);
+	}
+}
+
+// to view the component vist localhost:3000/test
+
+export default TestComponent;

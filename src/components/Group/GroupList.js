@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Panel, FormGroup, ListGroup, ListGroupItem } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import './GroupList.css';
 
@@ -18,6 +18,9 @@ class GroupList extends Component{
 						{group_array}
 					</ListGroup>
 				</Panel>
+				<FormGroup>
+					<Link to = '/addgroup'> Create a new group </Link>
+				</FormGroup>
 			</div>
 		);
 	}

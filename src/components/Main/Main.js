@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Main.css';
 import Welcome from '../Welcome/Welcome';
 import SignUp from '../SignUp/SignUp';
+import AddGroup from '../AddGroup/AddGroup';
 import NotFound from '../NotFound/NotFound';
 import Dashboard from '../Dashboard/Dashboard';
 // import Groups from '../Group/Groups';
@@ -9,6 +10,7 @@ import {Route, Switch, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import FlashMessages from '../../containers/FlashMessages';
 import GroupInfo from '../../containers/GroupInfo';
+import TestComponent from '../TestComponent/TestComponent';
 
 
 class Main extends Component{
@@ -21,9 +23,11 @@ class Main extends Component{
 				<FlashMessages />
 				<Switch>
 					<Route exact path="/" component={ logged_in ? Dashboard : Welcome} />
+					<Route exact path="/test" component={TestComponent} />
 					<Route path="/dashboard" component={Dashboard} />
 					<Route path="/signup" component={SignUp} />
 					<Route path="/groupInfo/:id" component={GroupInfo} />
+					<Route path="/addgroup" component={AddGroup} />
 					<Route path="*" component={NotFound} />
 				</Switch>
 			</main>
