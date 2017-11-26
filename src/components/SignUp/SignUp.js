@@ -6,10 +6,11 @@ import {Link} from 'react-router-dom';
 class SignUpForm extends Component {
 	constructor(props){
 		super(props);
-		this.validateName = this.validateName.bind(this);
+		this.validateField = this.validateField.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.validateEmail = this.validateEmail.bind(this);
-		this.validatePassword=this.validatePassword.bind(this);
+		this.validatePassword = this.validatePassword.bind(this);
+		this.validateForm = this.validateForm.bind(this);
 		this.state = {firstName: '', lastName:'', username: '', email: '', password: '', confirm: ''};
 	}
 
@@ -40,7 +41,7 @@ class SignUpForm extends Component {
 		}
 	}
 
-	validateName(fieldName){
+	validateField(fieldName){
 		let length = this.state[fieldName].length;
 		if(length === 0){
 			return null;
@@ -64,6 +65,32 @@ class SignUpForm extends Component {
 		}
 	}
 
+	validateForm(){
+		const fields = ['firstName', 'lastName', 'username', 'email', 'password', 'confirm'];
+		const states = [];
+		let validated = true;
+
+		fields.forEach((field)=>{
+			if(field === 'email'){
+				states.push(this.validateEmail());
+			} else if( field === 'password' || field === 'confirm'){
+				states.push(this.validatePassword());
+			} else {
+				// since we have to pass the field name as a parameter
+				states.push(this.validateField(field));
+			}
+		});
+
+		states.forEach((state) =>{
+			if(state !== 'success'){
+				validated = false;
+			}
+		});
+
+		return validated;
+
+	}
+
 	handleChange(fieldName, e){
 		let stateObj = {};
 		stateObj[fieldName] = e.target.value;
@@ -73,7 +100,7 @@ class SignUpForm extends Component {
 	render(){
 		return(
 			<Form horizontal className="form-container">
-			<FormGroup controlId="firstName" validationState={this.validateName('firstName')}>
+			<FormGroup controlId="firstName" validationState={this.validateField('firstName')}>
 					<Col componentClass={ControlLabel} sm={2} smOffset={3}>
 						First Name
 					</Col>
@@ -81,7 +108,7 @@ class SignUpForm extends Component {
 						<FormControl type="firstName" placeholder="First Name" onChange={(e)=>{this.handleChange('firstName', e)}} value={this.state.firstName}  />
 					</Col>
 			</FormGroup>
-			<FormGroup controlId="lastName" validationState={this.validateName('lastName')}>
+			<FormGroup controlId="lastName" validationState={this.validateField('lastName')}>
 					<Col componentClass={ControlLabel} sm={2} smOffset={3}>
 						Last Name
 					</Col>
@@ -91,7 +118,7 @@ class SignUpForm extends Component {
 			</FormGroup>
 
 
-                            <FormGroup controlId="formHorizontalEmail" validationState={this.validateEmail()}>
+            	<FormGroup controlId="formHorizontalEmail" validationState={this.validateEmail()}>
 			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Email
 			      	</Col>
@@ -99,7 +126,7 @@ class SignUpForm extends Component {
 			        	<FormControl type="email" placeholder="Email" value={this.state.email} onChange={(e)=>{this.handleChange('email', e)}}/>
 			      	</Col>
 			    </FormGroup>
-					<FormGroup controlId="formUsername" validationState={this.validateName('username')}>
+				<FormGroup controlId="formUsername" validationState={this.validateField('username')}>
 			        <Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Username
 			      	</Col>
@@ -117,7 +144,7 @@ class SignUpForm extends Component {
 			      	</Col>
 			    </FormGroup>
 
-                            <FormGroup controlId="formHorizontalPassword" validationState={this.validatePassword()}>
+                <FormGroup controlId="formHorizontalPassword" validationState={this.validatePassword()}>
 			      	<Col componentClass={ControlLabel} sm={2} smOffset={3}>
 			        	Confirm Password
 			      	</Col>
@@ -134,13 +161,17 @@ class SignUpForm extends Component {
 
 			    <FormGroup>
 			      	<Col smOffset={4} sm={4}>
-			        	<Button type="submit">
+			        	<Button type="submit" onClick={(e)=>{
+			        		e.preventDefault(); 
+			        		// for now we are just logging the result of the form validation
+			        		console.log(this.validateForm())
+			        	}}>
 			         		Register
 			        	</Button>
 			      	</Col>
 			    </FormGroup>
 
-                            <FormGroup>
+                <FormGroup>
 			      	<Col smOffset={4} sm={4}>
 			        	<Link to = '/'> Sign in with an existing account </Link>
 			      	</Col>
