@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FormGroup, FormControl, ControlLabel, Form, Col, Checkbox, Radio, Button } from 'react-bootstrap';
+import {FormGroup, FormControl, ControlLabel, Form, Col, Checkbox, Radio, Button, SplitButton, MenuItem } from 'react-bootstrap';
 import './AddGroup.css';
 import {Link} from 'react-router-dom';
 
@@ -42,6 +42,31 @@ class AddGroupForm extends Component {
 					</Radio>
 					{' '}
 				</FormGroup>
+
+				<FormGroup controlId = "Assignment schedule">
+					<Col componentClass={ControlLabel}>
+						Chore assignment date:
+					</Col>
+					<SplitButton title="Day of week" id="bg-vertical-dropdown-1">
+      						<MenuItem eventKey="1">Sunday</MenuItem>
+      						<MenuItem eventKey="2">Monday</MenuItem>
+      						<MenuItem eventKey="3">Tuesday</MenuItem>
+      						<MenuItem eventKey="4">Wednesday</MenuItem>
+      						<MenuItem eventKey="5">Thursday</MenuItem>
+      						<MenuItem eventKey="6">Friday</MenuItem>
+      						<MenuItem eventKey="7">Saturday</MenuItem>
+    					</SplitButton>
+					{' '}
+					<Col componentClass={ControlLabel}>
+						Assignmnet frequency:
+					</Col>
+					<SplitButton title="Frequency" id="bg-vertical-dropdown-1">
+      						<MenuItem eventKey="1">Weekly</MenuItem>
+      						<MenuItem eventKey="2">Bi-weekly</MenuItem>
+      						<MenuItem eventKey="3">Monthly</MenuItem>
+    					</SplitButton>
+				</FormGroup>
+
 				<FormGroup>
 			      		<Col smOffset={4} sm={4}>
 			        		<Checkbox>And click this box, for some reason</Checkbox>
