@@ -6,7 +6,8 @@ const mapStateToProps = (state) =>{
 	return {
 		chores:state.chores,
 		users:state.users,
-		groups:state.groups
+		groups:state.groups,
+		current_user:state.current_user
 	}
 }
 

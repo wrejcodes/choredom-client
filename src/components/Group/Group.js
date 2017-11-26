@@ -7,7 +7,7 @@ class Group extends Component{
 
 	render(){
 
-		let {match, users, chores, groups} = this.props;
+		let {match, users, chores, groups, current_user} = this.props;
 
 		const groupId = parseInt(match.params.id, 10);
 
@@ -84,6 +84,10 @@ class Group extends Component{
 				<PageHeader className="header">
 					{currentGroup.name}
 				</PageHeader>
+				<Row >
+					<Col xs = {6}>Current user:{findUser(current_user).name}</Col>
+					<Col xs = {6}>Your points:{currentGroup.points[`${current_user}`]}</Col>
+				</Row>
 				<Row className="titleRow">
 					<h3>Group Chores</h3>
 				</Row>
