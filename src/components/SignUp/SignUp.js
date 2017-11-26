@@ -17,14 +17,18 @@ class SignUpForm extends Component {
 	{
 		let passwordLength = this.state.password.length;
 		let confirmLength = this.state.confirm.length;
-		if(passwordLength <= 6 && confirmLength <= 6)
+		if(passwordLength === 0 && confirmLength === 0)
 		{
 			return null;
+		}
+		else if(passwordLength < 6 || confirmLength < 6)
+		{
+			return 'warning';
 		}
 		else
 		{
 			let p = this.state.password;
-			let c = this.state.confirm_password;
+			let c = this.state.confirm;
 			if(p == c)
 			{
 				return 'success';
@@ -118,7 +122,7 @@ class SignUpForm extends Component {
 			        	Confirm Password
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="password" placeholder="Re-enter Password" onChange={(e)=>{this.handleChange('confirm_password', e)}}/>
+			        	<FormControl type="password" placeholder="Re-enter Password" onChange={(e)=>{this.handleChange('confirm', e)}}/>
 			      	</Col>
 			    </FormGroup>
 
