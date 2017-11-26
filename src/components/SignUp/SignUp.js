@@ -16,16 +16,16 @@ class SignUpForm extends Component {
 	validatePassword()
 	{
 		let passwordLength = this.state.password.length;
-		let confirmLength=this.state.confirm.length;
-		if(passwordLength===0&&confirmLength===0)
+		let confirmLength = this.state.confirm.length;
+		if(passwordLength <= 6 && confirmLength <= 6)
 		{
 			return null;
 		}
 		else
 		{
-			let p=this.state.password;
-			let c=this.state.confirm_password;
-			if(p==c)
+			let p = this.state.password;
+			let c = this.state.confirm_password;
+			if(p == c)
 			{
 				return 'success';
 			}
@@ -118,7 +118,7 @@ class SignUpForm extends Component {
 			        	Confirm Password
 			      	</Col>
 			      	<Col sm={4}>
-			        	<FormControl type="confirm_password" placeholder="Re-enter Password" onChange={(e)=>{this.handleChange('confirm_password', e)}}/>
+			        	<FormControl type="password" placeholder="Re-enter Password" onChange={(e)=>{this.handleChange('confirm_password', e)}}/>
 			      	</Col>
 			    </FormGroup>
 
