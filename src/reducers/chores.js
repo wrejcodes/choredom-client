@@ -47,9 +47,9 @@ const chores = (state = [], action)=>{
 					belongsToGroup: action.groupId,
 					belongsToUser: 1,
 					points: {
-						worth: action.payload.points,
-						buy: action.payload.points * 2.25,
-						steal: action.payload.points * 2
+						worth: parseInt(action.payload.points, 10),
+						buy: parseInt(action.payload.points, 10) * 2.25,
+						steal: parseInt(action.payload.points, 10) * 2
 					}
 
 				}

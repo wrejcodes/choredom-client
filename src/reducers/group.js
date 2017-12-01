@@ -3,8 +3,9 @@ import {ADD_POINTS,
 		FETCH_GROUPS_SUCCESS, 
 		FETCH_GROUPS_START,
 		FETCH_GROUPS_END,
-		FETCH_GROUPS_ERROR } from '../actions/groups';
-
+		FETCH_GROUPS_ERROR,
+		CREATE_GROUP } from '../actions/groups';
+let id = 4; // initial number of groups
 const groups = (state = [], action)=>{
 	switch(action.type){
 		case ADD_POINTS:
@@ -29,6 +30,42 @@ const groups = (state = [], action)=>{
 				}
 				return temp;
 			});
+		case CREATE_GROUP:
+			let users = [];
+			users.push(action.current_user);
+			let added = action.payload.users.split(" ");
+			added.forEach((user)=> {
+				switch(user.toUpperCase()){
+					case 'WILL':
+						users.push(1);
+						break;
+					case 'SEAN':
+						users.push(2);
+						break;
+					case 'ERIC':
+						users.push(3);
+						break;
+					case 'SARJU':
+						users.push(4);
+						break;
+					default:
+						break;
+				}
+			})
+			let pointsObj = {}
+			users.forEach((user)=>{
+				pointsObj[`${user}`] = 0;
+			});
+			return [
+				...state,
+				{
+					id: ++id,
+					name: action.payload.groupName,
+					userIDs: users,
+					adminID: action.current_user,
+					points: pointsObj
+				}
+			]
 		case FETCH_GROUPS_SUCCESS:
 			return action.groups;
 		default: return state;

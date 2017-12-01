@@ -9,6 +9,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import FlashMessages from '../../containers/FlashMessages';
+import CreateGroup from '../../containers/CreateGroup';
 import GroupInfo from '../../containers/GroupInfo';
 import TestComponent from '../TestComponent/TestComponent';
 
@@ -27,7 +28,7 @@ class Main extends Component{
 					<Route path="/dashboard" component={Dashboard} />
 					<Route path="/signup" component={SignUp} />
 					<Route path="/groupInfo/:id" component={GroupInfo} />
-					<Route path="/addgroup" component={AddGroup} />
+					<Route path="/addgroup" component={CreateGroup} />
 					<Route path="*" component={NotFound} />
 				</Switch>
 			</main>

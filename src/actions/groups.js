@@ -4,6 +4,7 @@ export const FETCH_GROUPS_START = 'FETCH_GROUPS_START';
 export const FETCH_GROUPS_SUCCESS = 'FETCH_GROUPS_SUCCESS';
 export const FETCH_GROUPS_END = 'FETCH_GROUPS_END';
 export const FETCH_GROUPS_ERROR = 'FETCH_GROUPS_ERROR';
+export const CREATE_GROUP = 'CREATE_GROUP';
 
 export const add_points = (groupId, userId, points) =>(
 	{
@@ -52,5 +53,11 @@ export const fetchGroupsError = (message) => (
 	}
 
 )
+
+export const createGroup = (payload, current_user) => ({
+	type: CREATE_GROUP,
+	payload,
+	current_user
+})
 
 
