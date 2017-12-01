@@ -1,0 +1,25 @@
+.pictureRow{
+	padding-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.centered{
+	display: flex;
+	justify-content: center;
+}
+
+.Login-Row h1{
+	margin:50px;
+}
+
+
+.Login-Row .Description h4{
+	padding-top:20px;
+}
+
+.Login-Row .Welcome{
+	font-family: 'Poiret One', cursive;
+	font-size: 4em;
+}
