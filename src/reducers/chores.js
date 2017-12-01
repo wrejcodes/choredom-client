@@ -4,7 +4,10 @@ import {REMOVE_CHORE,
 		FETCH_CHORES_START,
 		FETCH_CHORES_SUCCESS,
 		FETCH_CHORES_ERROR,
-		FETCH_CHORES_END} from '../actions/chores';
+		FETCH_CHORES_END,
+		CREATE_CHORE} from '../actions/chores';
+
+let id = 12; // initial count of chores
 
 const chores = (state = [], action)=>{
 	switch(action.type){
@@ -32,6 +35,25 @@ const chores = (state = [], action)=>{
 		return state.filter((chore)=>{
 			return chore.id !== action.choreId;
 		});
+		case CREATE_CHORE:
+			return [
+				...state,
+				{
+					id: ++id,
+					name: action.payload.choreName,
+					description: action.payload.description,
+					startTime: Date.now() - (1000 * 48 * 60 * 60),
+					endTime: Date.now() + (1000 * 48 * 60 * 60),
+					belongsToGroup: action.groupId,
+					belongsToUser: 1,
+					points: {
+						worth: action.payload.points,
+						buy: action.payload.points * 2.25,
+						steal: action.payload.points * 2
+					}
+
+				}
+			]
 		case FETCH_CHORES_SUCCESS:
 			return action.chores;
 		default: return state;

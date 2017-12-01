@@ -5,6 +5,7 @@ export const FETCH_CHORES_START = 'FETCH_CHORES_START';
 export const FETCH_CHORES_SUCCESS = 'FETCH_CHORES_SUCCESS';
 export const FETCH_CHORES_END = 'FETCH_CHORES_END';
 export const FETCH_CHORES_ERROR = 'FETCH_CHORES_ERROR';
+export const CREATE_CHORE = 'CREATE_CHORE';
 
 export const steal_chore = (choreId, assignTo) =>(
 	{
@@ -59,5 +60,15 @@ export const fetchChoresError = (message) => (
 	}
 
 )
+
+export const createChore = (payload, groupId) =>(
+{
+	type: CREATE_CHORE,
+	payload,
+	groupId
+}
+)
+
+
 
 
