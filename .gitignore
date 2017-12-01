@@ -19,7 +19,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+*.ai
 /src/components/TestComponent/TestComponent.js
 
 *.*~
