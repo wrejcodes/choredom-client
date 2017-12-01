@@ -1,9 +1,34 @@
 import React, {Component} from 'react';
 import ChoreItem from '../../containers/ChoreItem';
-import {Col, PageHeader, Row, Panel, ListGroup, ListGroupItem} from 'react-bootstrap';
+import { Col, 
+		 PageHeader, 
+		 Row, 
+		 Panel, 
+		 ListGroup, 
+		 ListGroupItem, 
+		 Button, 
+		 Modal,
+		 OverlayTrigger,
+		 popover,
+		 tooltip} from 'react-bootstrap';
+import AddChores from '../AddChores/AddChores';
 import './Group.css';
 
 class Group extends Component{
+	constructor(props){
+		super(props);
+		this.state = {showModal: false};
+		this.open = this.open.bind(this);
+		this.close = this.close.bind(this);
+	}
+
+	open(){
+		this.setState({showModal:true});
+	}
+
+	close(){
+		this.setState({showModal:false});
+	}
 
 	render(){
 
@@ -79,17 +104,34 @@ class Group extends Component{
 			return <ListGroupItem key={index}>{currentGroup.points[`${user.id}`]}</ListGroupItem>
 		});
 
+
 		return(
-			<div className="Group-container container">
+			<div className="Group-container container" >
 				<PageHeader className="header">
 					{currentGroup.name}
 				</PageHeader>
+
+				 <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header closeButton>
+            <Modal.Title><span className="centered">Add a Chore!</span></Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <AddChores />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+				
 				<Row >
-					<Col xs = {6}>Current user:{findUser(current_user).name}</Col>
-					<Col xs = {6}>Your points:{currentGroup.points[`${current_user}`]}</Col>
+					<Col xs = {6}><h4>Welcome back {findUser(current_user).name}</h4></Col>
+					<Col xs = {6}><h4>Your points: {currentGroup.points[`${current_user}`]}</h4></Col>
 				</Row>
 				<Row className="titleRow">
 					<h3>Group Chores</h3>
+				</Row>
+				<Row className="Add-Chore-Button">
+					<Col md={3} mdOffset={9}><Button onClick={this.open} >Add Chore</Button></Col>
 				</Row>
 				<Row>
 					{choreArray}
