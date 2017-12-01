@@ -12,10 +12,10 @@ class Header extends Component{
 		return(
 			<Navbar className="nav-container">
 				<Navbar.Header>
-					<Navbar.Brand><Link to='/' > Choredom </Link></Navbar.Brand>
+					<Navbar.Brand ><Link to='/' ><span className="branding"> Choredom </span> </Link></Navbar.Brand>
 				</Navbar.Header>
-				<Nav pullRight>
-					<NavItem onClick={()=>handleSignOut()}>Sign Out</NavItem>
+				<Nav pullRight >
+					{ logged_in ? <NavItem onClick={()=>handleSignOut()}><span  className="signOut">Sign Out</span></NavItem> : "" }
 				</Nav>
 			</Navbar>
 		);
@@ -35,6 +35,6 @@ const mapDispatchToProps = (dispatch) =>{
 	}
 }
 
-Header = withRouter(connect(mapStateToProps,mapDispatchToProps)(Header));
+Header = connect(mapStateToProps,mapDispatchToProps)(Header);
 
 export default Header;

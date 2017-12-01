@@ -1,5 +1,6 @@
 .header{
 	margin-top: 0;
+	color:#2c3e50;
 }
 
 .titleRow{
@@ -8,4 +9,8 @@
 }
 .Add-Chore-Button{
 	padding-bottom: 30px;
+}
+
+.green{
+	color:#1abc9c;
 }

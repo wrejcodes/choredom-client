@@ -11,13 +11,13 @@ class AddChores extends Component {
 		this.validateDescription = this.validateDescription.bind(this);
 		this.validatePoints=this.validatePoints.bind(this);
 		this.validateForm=this.validateForm.bind(this);
-		this.state = {choreName: '', Description:'', Points: ''};
+		this.state = {choreName: '', description:'', points: ''};
 	}
 	validateName()
 	{
 		let length=this.state.choreName.length;
 		if(length===0)
-		return 'null';
+		return null;
 		else if(length>=3)
 		{
 			return 'success';
@@ -28,7 +28,7 @@ class AddChores extends Component {
 	}
 	validateDescription()
 	{
-		let length=this.state.Description.length;
+		let length=this.state.description.length;
 		if(length===0)
 		return 'null';
 		else if(length>=3)
@@ -42,28 +42,28 @@ class AddChores extends Component {
 	validatePoints()
 	{
 		const pattern = /^([0-9])+$/;
-		let length = this.state.Points.length;
+		let length = this.state.points.length;
 
 		if(length === 0){
 			return null;
 		} else {
 			let regex = new RegExp(pattern);
-			let match = regex.test(this.state.Points);
+			let match = regex.test(this.state.points);
 			return match ? "success" : "error";
 		}
 	}
 
 	validateForm(){
-		const fields = ['choreName', 'Description', 'Points'];
+		const fields = ['choreName', 'description', 'points'];
 		const states = [];
 		let validated = true;
 
 		fields.forEach((field)=>{
 			if(field === 'choreName'){
 				states.push(this.validateName());
-			} else if( field === 'Description'){
+			} else if( field === 'description'){
 				states.push(this.validateDescription());
-			} else if(field==='Points'){
+			} else if(field==='points'){
 				// since we have to pass the field name as a parameter
 				states.push(this.validatePoints());
 			}
@@ -85,6 +85,8 @@ class AddChores extends Component {
 		this.setState(stateObj);
 	}
 		render(){
+			let {handleSubmit, match, closeModal} = this.props;
+			let groupId = parseInt(match.params.id, 10);
 		return(
 			<Form horizontal className="form-container">
 			<FormGroup controlId="choreName" validationState={this.validateName()}>
@@ -100,7 +102,7 @@ class AddChores extends Component {
 						Description
 					</Col>
 					<Col sm={4}>
-						<FormControl type="Description" placeholder="Enter the description" onChange={(e)=>{this.handleChange('Description', e)}} />
+						<FormControl type="Description" placeholder="Enter the description" onChange={(e)=>{this.handleChange('description', e)}} />
 					</Col>
 			</FormGroup>
 
@@ -109,7 +111,7 @@ class AddChores extends Component {
 						Points
 					</Col>
 					<Col sm={4}>
-						<FormControl type="Points" placeholder="Enter the points." onChange={(e)=>{this.handleChange('Points', e)}} />
+						<FormControl type="Points" placeholder="Enter the points." onChange={(e)=>{this.handleChange('points', e)}} />
 					</Col>
 			</FormGroup>
 			<FormGroup>
@@ -117,7 +119,10 @@ class AddChores extends Component {
 						<Button type="submit" onClick={(e)=>{
 							e.preventDefault();
 							// for now we are just logging the result of the form validation
-							console.log(this.validateForm())
+							if(this.validateForm()){
+								handleSubmit(this.state,groupId);
+								closeModal();
+							}
 						}}>
 							Add Chore
 						</Button>

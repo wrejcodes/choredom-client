@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Well, Panel, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import { FormattedRelative } from 'react-intl';
 import { emojify } from 'react-emojione';
+import './Chore.css';
 
 class Chore extends Component{
 
@@ -45,16 +46,16 @@ class Chore extends Component{
 		let stealOrComplete = null; // incase it can't be stolen again
 		stealOrComplete = (chore.points.steal > 0 || chore.belongsToUser === current_user) && <Button bsStyle={style} 
 																								onClick={() => { stealOrCompleteClick(chore.id, current_user, group.id,chore)}}>
-																								{text}
+																								<i className="fa fa-star"/> {text}
 																						</Button>
 		let stealItem = null;
 		let buyOut = null;
 		stealItem = chore.points.steal > 0 && <ListGroupItem>Steal to earn: {chore.points.steal - chore.points.worth} extra points</ListGroupItem>;
-		buyOut = group.points[`${user.id}`] >= chore.points.worth && <Button bsStyle={'danger'} onClick={()=>{handleBuyOutChore(chore.id, randomId(users)); handleSpendPoints(group.id,current_user,chore.points.buy)}}>Reassign</Button>;
+		buyOut = group.points[`${user.id}`] >= chore.points.worth && <Button bsStyle={'danger'} onClick={()=>{handleBuyOutChore(chore.id, randomId(users)); handleSpendPoints(group.id,current_user,chore.points.buy)}}><i className="fa fa-gift"/> Reassign</Button>;
 		return(
 			<Well className="Chore-container" large>
 
-				<Panel header={<h1>{chore.name}</h1>}>
+				<Panel header={<h1><span className="green">{chore.name}</span></h1>}>
 					<ListGroup>
 						<ListGroupItem>Description: {emojify(chore.description)}</ListGroupItem>
 						<ListGroupItem>Due: <FormattedRelative value={chore.endTime}/></ListGroupItem>

@@ -12,7 +12,7 @@ class ChoreList extends Component{
 
     return(
       <div className="ChoreList-container">
-        <Panel header="Your Chores">
+        <Panel header="Your Chores" className="bar">
           <ListGroup fill>
             {chore_array}
           </ListGroup>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ChoreItem from '../../containers/ChoreItem';
+import CreateChore from '../../containers/CreateChore'
 import { Col, 
 		 PageHeader, 
 		 Row, 
@@ -111,21 +112,21 @@ class Group extends Component{
 					{currentGroup.name}
 				</PageHeader>
 
-				 <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
-            <Modal.Title><span className="centered">Add a Chore!</span></Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <AddChores />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+				 <Modal show={this.state.showModal} onHide={this.close} >
+          			<Modal.Header closeButton>
+            			<Modal.Title><span className="centered">Add a Chore!</span></Modal.Title>
+         			</Modal.Header>
+          			<Modal.Body>
+            			<CreateChore closeModal={this.close}/>
+          			</Modal.Body>
+          			<Modal.Footer>
+            			<Button onClick={this.close}>Close</Button>
+          			</Modal.Footer>
+        		</Modal>
 				
-				<Row >
+				<Row className="info-tags">
 					<Col xs = {6}><h4>Welcome back {findUser(current_user).name}</h4></Col>
-					<Col xs = {6}><h4>Your points: {currentGroup.points[`${current_user}`]}</h4></Col>
+					<Col xs = {6}><h4>Your points: {currentGroup.points[`${current_user}`]} <i className="fa fa-star green" /></h4></Col>
 				</Row>
 				<Row className="titleRow">
 					<h3>Group Chores</h3>
